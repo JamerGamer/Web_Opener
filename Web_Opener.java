@@ -9,14 +9,13 @@ class Web_Opener{
 
   public static void openFile(String fileName){
 
-
-
     try (FileInputStream fis = new FileInputStream(fileName)) {
       prop.load(fis);
     }
   
     catch (IOException ex){
       System.out.println("error");
+
     }
   }
 
@@ -41,7 +40,19 @@ class Web_Opener{
 
       catch (InterruptedException e){
         e.printStackTrace();
+
       }
+    }
+  }
+
+  public static void runLocalFile(String exePath){
+
+    try{
+        run.exec(exePath);
+    }
+
+    catch (IOException e){
+      e.printStackTrace();
     }
   }
 
@@ -49,6 +60,7 @@ class Web_Opener{
 
     openFile("url.config");
     openUrl("url", 1);
+    runLocalFile("Desktop/Discord");
 
   }
 
